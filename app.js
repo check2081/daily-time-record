@@ -5,18 +5,6 @@ const form = document.querySelector('form');
 const dialog = document.querySelector('#dialog')
 const helpDialog = document.querySelector('#help');
 
-window.addEventListener('load', () => {
-    const now = new Date();
-    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-    timeInput.value = now.toISOString().slice(11, 16);
-})
-
-timeInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        console.log('submit: enter');
-    }
-})
-
 document.addEventListener('keydown', (event) => {
     // event.preventDefault();
 
@@ -42,3 +30,17 @@ document.addEventListener('keydown', (event) => {
 
     // console.log(event.key);
 })
+
+
+window.addEventListener('load', () => {
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    timeInput.value = now.toISOString().slice(11, 16);
+})
+
+timeInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        console.log('submit: enter');
+    }
+})
+
