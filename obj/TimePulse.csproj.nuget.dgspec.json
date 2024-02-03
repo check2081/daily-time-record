@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Exequiel Arroyo\\source\\repos\\html-css-javascript\\TimePulse.csproj": {}
+    "C:\\Users\\Exequiel Arroyo\\source\\repos\\TimePulse\\TimePulse.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Exequiel Arroyo\\source\\repos\\html-css-javascript\\TimePulse.csproj": {
+    "C:\\Users\\Exequiel Arroyo\\source\\repos\\TimePulse\\TimePulse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Exequiel Arroyo\\source\\repos\\html-css-javascript\\TimePulse.csproj",
+        "projectUniqueName": "C:\\Users\\Exequiel Arroyo\\source\\repos\\TimePulse\\TimePulse.csproj",
         "projectName": "TimePulse",
-        "projectPath": "C:\\Users\\Exequiel Arroyo\\source\\repos\\html-css-javascript\\TimePulse.csproj",
+        "projectPath": "C:\\Users\\Exequiel Arroyo\\source\\repos\\TimePulse\\TimePulse.csproj",
         "packagesPath": "C:\\Users\\Exequiel Arroyo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Exequiel Arroyo\\source\\repos\\html-css-javascript\\obj\\",
+        "outputPath": "C:\\Users\\Exequiel Arroyo\\source\\repos\\TimePulse\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.1, )"
@@ -52,9 +56,19 @@
               "target": "Package",
               "version": "[8.0.1, )"
             },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
