@@ -22,8 +22,29 @@ namespace TimePulse.Controllers
 
         // GET: api/Records
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Record>>> GetRecord()
+        [HttpDelete]
+        public async Task<ActionResult<IEnumerable<Record>>> GetRecord(DateTime? @in, bool truncate = false)
         {
+            var ar = new List<Record>();
+
+            if (@in != null) {
+                var @record = await _context.Record.FirstOrDefaultAsync(r => r.In.Value.Date == @in.Value.Date);
+                if (@record != null)
+                {
+                    ar.Add(@record);
+                }
+                return ar;
+            } else if (truncate)
+            {
+                var @record = await _context.Record.LastAsync();
+                if (@record != null)
+                {
+                    _context.Record.Remove(@record);
+                    _context.SaveChanges();
+                }
+                return ar;
+            }
+
             return await _context.Record.ToListAsync();
         }
 
