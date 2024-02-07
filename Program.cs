@@ -10,6 +10,17 @@ builder.Services.AddDbContext<RecordContext>(opt => opt.UseInMemoryDatabase("Rec
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        //policy.AllowAnyOrigin();
+        policy.AllowAnyHeader();
+        policy.AllowAnyMethod();
+        policy.WithOrigins(["localhost", "http://www.pulse.com:1234"]).AllowCredentials();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -40,7 +51,7 @@ app.UseHttpsRedirection();
 //})
 //.WithName("GetWeatherForecast")
 //.WithOpenApi();
-
+app.UseCors();
 app.MapControllers();
 
 app.Run();
