@@ -9,13 +9,13 @@ using TimePulse.Models;
 
 namespace TimePulse.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class RecordsController : ControllerBase
     {
-        private readonly RecordContext _context;
+        private readonly DatabaseContext _context;
 
-        public RecordsController(RecordContext context)
+        public RecordsController(DatabaseContext context)
         {
             _context = context;
         }

@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
-builder.Services.AddDbContext<RecordContext>(opt => opt.UseInMemoryDatabase("Record"));
+builder.Services.AddDbContext<DatabaseContext>(opt => opt.UseInMemoryDatabase("Record"));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -17,18 +17,29 @@ builder.Services.AddCors(options =>
         //policy.AllowAnyOrigin();
         policy.AllowAnyHeader();
         policy.AllowAnyMethod();
-        policy.WithOrigins(["localhost", "http://www.pulse.com:1234"]).AllowCredentials();
+        policy.WithOrigins([
+            "http://localhost:80",
+            "http://localhost:3000",
+            "http://192.168.1.168:3000",
+            "http://timepulse.com",
+            "https://timepulse.com",
+            "http://192.168.1.168",
+            "https://www.pulse.com",
+            "http://www.pulse.com:1234",
+            "https://www.timepulse.com",
+            "http://127.0.0.1:5500",
+        ]).AllowCredentials();
     });
 });
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
